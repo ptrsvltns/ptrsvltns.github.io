@@ -155,6 +155,7 @@
         #id {
             overflow-x: hidden;
         }
+
     </style>
     <div id="post">
         <div class="center">
@@ -165,32 +166,42 @@
                     <div class="time">时间: 2017-12-11 20:07:41</div>
                 </div>
             </div>
-            <div id="area" style="overflow-x: hidden;">
-            </div>
+            <div id="area" style="overflow-x: hidden;"></div>
             <textarea id="view" style="display:none;">
                   
-  
-> 现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 所以学习使用 Markdown 是一件很好的选择 .
+> 现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 下面是我在别人教程人整理的一些使用方法 , 也算是在博客里面的第一篇文章了 .
 
-# 标题1  
+----
+
+### 目录
+
+[TOC]
+
+----
+
+### 一、在 Markdown 中使用标题
+
+<h1>标题1</h1>  
 `# 标题1`  
 
-## 标题2  
+<h2>标题2</h2>  
 `## 标题2`  
 
-### 标题3  
+<h3>标题3</h3>  
 `### 标题3`  
 
-#### 标题4  
+<h4>标题4</h4>  
 `#### 标题4`  
 
-##### 标题5  
+<h5>标题5</h5>  
 `##### 标题5`  
 
-###### 标题6  
+<h6>标题6</h6>  
 `###### 标题6`  
 
 ----
+
+### 二、在 Markdown 中的一些常规处理
 
 分割  
 `----`
@@ -218,6 +229,8 @@
 
 ----  
 
+### 三、在 Markdown 中使用引用
+
 > 引用  
 
 `> 引用`
@@ -228,9 +241,11 @@
 
 ----
 
-<div style="color: red;">CSS</div>  
-`<div style="color: red;">CSS</div>`
+### 四、在 Markdown 中使用HTML
 
+<div style="color: red;">CSS</div>  
+
+`<div style="color: red;">CSS</div>`
 
 <div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>  
 
@@ -238,8 +253,10 @@
 
 ----  
 
+### 五、在 Markdown 中使用链接
+
 [链接](%%current%%)  
-`[带标题链接](%%current%% "带标题链接")`
+`[链接](%%current%%)`
 
 [带标题链接](%%current%% "带标题链接")  
 `[带标题链接](%%current%% "带标题链接")`
@@ -252,17 +269,37 @@
 
 [haha]: %%current%%
 
-`[链接命名][haha]  [haha]: %%current%%`
+```
+[链接命名][haha]
+[haha]: %%current%%
+```
+
+<a href="%%current%%">链接</a>  
+
+    <a href="%%current%%">链接</a>
 
 ----
+
+### 六、在 Markdown 中使用图片
 
 ![](%%root%%image/logo.png)  
-`![](%%root%%image/logo.png)`
+
+    //普通图片
+    ![](%%root%%image/logo.png)
 
 [![](%%root%%image/logo.png)](%%current%% "链接")  
-`[![](%%root%%image/logo.png)](%%current%% "链接")`
+
+    //带连接的图片
+    [![](%%root%%image/logo.png)](%%current%% "链接")
+
+<img src="%%root%%image/logo.png" draggable="false" style="width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);"/>  
+
+    //当然你也可以花式玩法 用HTML
+    <img src="%%root%%image/logo.png" draggable="false" style="width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);"/>
 
 ----
+
+### 七、在 Markdown 中使用列表
            
 - 列表
 - 列表
@@ -312,6 +349,8 @@
 
 ----
 
+### 八、在 Markdown 中使用表格
+
 | 名字        | 年龄       |
 | ----        | ----:     |
 | 小红        |   11岁     |
@@ -337,8 +376,8 @@
 ----
 
 | 左边对齐  | 中间对齐  | 右边对齐 |
-| :---- |:----:| ----:|
-| 哈哈 | 1000 | 1000 |
+| :------- |:--------: | ------: |
+| 哈哈     | 1000      | 1000    |
 
     | 左边对齐  | 中间对齐  | 右边对齐 |
     | :------- |:---------:| -------:|
@@ -346,11 +385,15 @@
 
 ----
 
+### 九、在 Markdown 中使用 特殊符号 或者 转义符号
+
 &copy; & &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; &frac34; &frac14; &times; &divide; &raquo; A&sup2; B&sup3; 18&ordm;C &quot; &apos;
 
     & + 字符 + ; 具体参考HTML转义
 
 ----
+
+### 十、在 Markdown 中使用代码片段
 
     代码缩进
     <?php echo "haha!"; ?>
@@ -389,19 +432,30 @@ $(function() {
 
 ----
 
-### 科学算式的符号左右两边由$$组成
+### 十一、在 Markdown 中使用公式
+
+```
+左右两边由$$组成  
+$$公式$$
+```
 
 $$E=mc^2$$  
 
-`E=mc^2`
+```
+$$E=mc^2$$
+```
 
 $$(sqrt{3x-1}+(1+x)^2)$$  
 
-`(sqrt{3x-1}+(1+x)^2)`
+```
+$$(sqrt{3x-1}+(1+x)^2)$$
+```
 
 $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$  
 
-`\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))`
+```
+$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+```
 
 ```math
 \displaystyle
@@ -457,7 +511,7 @@ f(x) = \int_{-\infty}^\infty
 
 ----
 
-### 流程图
+### 十二、在 Markdown 中使用流程图
 
 ```flow
 open=>start: 打开程序
@@ -484,7 +538,7 @@ is(no)->init
 
 ----
 
-### 交互图
+### 十三、在 Markdown 中使用交互图
 
 ```seq
 客户->服务器: 请求登录  
@@ -501,6 +555,8 @@ Note left of 客户: 小标签
     Note left of 客户: 小标签  
     客户->>服务器: 收到Token  
     ```
+    
+
             </textarea>
             <script>
                 $(function() {
@@ -512,7 +568,7 @@ Note left of 客户: 小标签
                         markdown        : content,
                         htmlDecode      : true,
                         toc             : true,
-                        tocm            : true,
+                        tocm            : false,
                         emoji           : false,
                         taskList        : true,
                         tex             : true,
@@ -523,6 +579,43 @@ Note left of 客户: 小标签
             </script>
         </div>
     </div>
+</div>
+        <div>
+    <style>
+        #scroll {
+            display: none;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 40px; height: 40px;
+            background: white;
+            border: 1px solid #f2f2f2;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+    <div id="scroll">返回顶部</div>
+    <script>
+        $(function() {
+            var el = $(document);
+            var scroll = $("#scroll");
+            function set() {
+                var top = el.scrollTop();
+                if(top > 500) {
+                    scroll.show();
+                } else {
+                    scroll.hide();
+                }
+            }
+            set();
+            el.scroll(function() {
+                set();
+            });
+            scroll.bind("click", function() {
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            });
+        });
+    </script>
 </div>
     </body>
 </html>
