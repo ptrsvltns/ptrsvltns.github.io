@@ -235,21 +235,65 @@
 
 `> 引用`
 
-> `代码` [链接](%%current%%) 
+> [链接](%%current%%)`代码`*斜体体* **粗体**  
 
 `引用内部也可以用其他标签`
 
 ----
 
-### 四、在 Markdown 中使用HTML
+### 四、在 Markdown 中使用HTML  
+> 很多网站对javascript做了屏蔽，但是html还是很好支持的
 
 <div style="color: red;">CSS</div>  
 
-`<div style="color: red;">CSS</div>`
+```html
+<div style="color: red;">CSS</div>
+```
 
 <div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>  
 
-`<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>`
+```html
+<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>
+```
+
+<iframe id="content-1" style="width: 100%; height: 100px; border: 1px solid #ddd; background: white;"></iframe>
+
+<script>
+setTimeout(function() {
+        document.getElementById("content-1").contentWindow.document.body.innerHTML = "<h1>iframe</h1>";}, 0);
+</script>
+
+```html
+//这个附带javascript脚本大部分网站会屏蔽掉
+<iframe id="content-1" style="width: 100%; height: 100px; border: 1px solid #ddd; background: white;"></iframe>
+<script>
+    setTimeout(function() {
+        document.getElementById("content-1").contentWindow.document.body.innerHTML = "<h1>iframe</h1>";
+    }, 0);
+</script>
+```
+
+<div id="content-2"></div>
+
+<script>
+setTimeout(function() {document.getElementById("content-2").innerHTML = "<p style=\"background: white; color:balck;\">div</p>";}, 0);
+</script>  
+
+```html
+//这个附带javascript脚本大部分网站会屏蔽掉
+<div id="content-2"></div>
+<script>
+    setTimeout(function() {
+        document.getElementById("content-2").innerHTML = "<p style=\"background: white; color:balck;\">div</p>";
+    }, 0);
+</script>
+```
+
+<div style="display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;" onmouseover="this.style.color = 'blue';" onmouseout="this.style.color='black';" onmousedown="this.style.color='red';" onmouseup="this.style.color='black';">按钮</div>
+
+```html
+<div style="display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;" onmouseover="this.style.color = 'blue';" onmouseout="this.style.color='black';" onmousedown="this.style.color='red';" onmouseup="this.style.color='black';">按钮</div>
+```
 
 ----  
 
