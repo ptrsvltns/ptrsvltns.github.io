@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+        <meta content="telephone=no" name="format-detection" />
+        <meta name="google" value="notranslate">
+
+        <link rel="stylesheet" href="/blog/js/markdown/css/editormd.preview.min.css" />
+
+        <link rel="icon" type="image/x-icon" href="/blog/favicon.ico" />
+
+        <title>PTRSVLTNS</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+            }
+            html {
+                overflow-x: hidden;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var config = {
+                url: "http://ptrsvltns.github.io/blog",
+                root: "/blog/",
+                current: window.location.href
+            }
+        </script>
+        <script src="/blog/js/markdown/js/jquery.min.js"></script>
+        <script src="/blog/js/markdown/js/marked.min.js"></script>
+        <script src="/blog/js/markdown/js/prettify.min.js"></script>
+
+        <script src="/blog/js/markdown/js/raphael.min.js"></script>
+        <script src="/blog/js/markdown/js/underscore.min.js"></script>
+        <script src="/blog/js/markdown/js/sequence-diagram.min.js"></script>
+        <script src="/blog/js/markdown/js/flowchart.min.js"></script>
+        <script src="/blog/js/markdown/js/jquery.flowchart.min.js"></script>
+
+        <script src="/blog/js/markdown/editormd.min.js"></script>
+        <div>
+    <style>
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            z-index: 10;
+        }
+        .fix-header {
+            height: 70px;
+        }
+        #header .center {
+            height: 100%;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #header .title {
+            line-height: 70px;
+            font-size: 30px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+        }
+        #header .title:hover {
+            color: #555;
+        }
+        @media screen and (max-width: 800px) {
+            #header {
+                height: 50px;
+            }
+            .fix-header {
+                height: 50px;
+            }
+            #header .center {
+                padding: 0 10px;
+            }
+            #header .title {
+                line-height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+    <div id="header">
+        <div class="center">
+            <div class="title">PTRSVLTNS</div>
+        </div>
+    </div>
+    <div class="fix-header"></div>
+    <script>
+        $(function() {
+            $("#header .title").bind("click", function() {
+                window.location.href = config.url;
+            });
+        });
+    </script>
+</div>
+<div>
+    <style>
+        #list {
+            width: 100%;
+            background: white;
+        }
+        #list .center {
+            height: auto;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+        @media screen and (max-width: 800px) {
+            #list .center {
+                padding: 0 10px;
+            }
+        }
+        #list .box {
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        #list .title {
+            color: #333;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+            cursor: pointer;
+            text-decoration: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #list .title:hover {
+            color: #777;
+        }
+        #list .title:active {
+            color: #999;
+        }
+        #list .content {
+            font-size: 13px;
+            line-height: 17px;
+            max-height: 51px;
+            overflow: hidden;
+            margin: 2px 0 8px 0;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        #list .info {
+            min-width: 400px;
+        }
+        #list .tag {
+            font-size: 13px;
+            display: inline-block;
+            padding: 3px 6px;
+            margin-top: -1px;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 1;
+            vertical-align: middle;
+            color: #0084ec;
+            border: 1px solid #0084ec;
+            border-radius: 3px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #list .time {
+            font-size: 12px;
+            display: inline-block;
+            color: #999;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <div id="list">
+        <div class="center">
+            
+            
+            <div class="box">
+                <a class="title" href="2017/12/11/markdown/">MarkDown 使用教程</a>
+                <div class="content">
+                    
+                    现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 所以学习使用 Markdown 是一件很好的选择 . 标题1 # 标题1标题2 ## 标题2标题3 ### 标题3标题4 #### 标题4标题5 ##### 标题5标题6 ###### 标题6分割---- 删除线 删除线 ~~删除线~~ &lt;s&gt;删除线&lt;/s&gt; 斜体字 斜体字 *斜体字* _斜体字_ 粗体粗体 **粗体**__粗体__粗斜体 粗斜体***粗斜体*** ___粗斜体___上标：X 2 X&lt;sub&gt;2&lt;/sub&gt;下标：O 2 O&lt;sup&gt;2&lt;/sup&gt; 鼠标放这里 &lt;abbr title=&quot;我是小标签&quot;&gt;鼠标放这里&lt;/abbr&gt;引用&gt; 引用 代码 链接引用内部也可以用其他标签CSS &lt;div style=&quot;color: red;&quot;&gt;CSS&lt;/div&gt; CSS &lt;div style=&quot;cursor: pointer; color: #666; text-align: right; user-select: none;&quot;&gt;CSS&lt;/div&gt; 链接 [带标题链接](%%current%% &quot;带标题链接&quot;) 带标题链接 [带标题链接](%%current%% &quot;带标题链接&quot;)链接：&lt;%%current%%&gt;链接：&lt;%%current%%&gt; 链接命名 [链接命名][haha][haha]: %%current%% ![](%%root%%image/logo.png) [![](%%root%%image/logo.png)](%%current%% &quot;链接&quot;)列表 列表- 名称列表 列表* 名称列表 列表 列表 列表 列表 列表 列表+ 名称列表 列表 列表数字. 名称已完成1 已完成2 未完成1 未完成3 未完成4 未完成5 未完成2 未完成3 未完成4- [] 未完成 - [x] 已完成名字 年龄 小红 11岁 小黄 12岁| 名字| 年龄 | | ----| ----: | | 小红| 11岁 | | 小黄| 12岁 |名字 年龄 小红 11岁 小黄 12岁名字| 年龄 ----| ----: 小红| 11岁 小黄| 12岁左边对齐 中间对齐 右边对齐 哈哈 1000 1000| 左边对齐| 中间对齐| 右边对齐 | | :------- |:---------:| -------:| | 哈哈 | 1000| 1000|&copy; &amp; &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; &frac34; &frac14; &times; &divide; &raquo; A&sup2; B&sup3; 18&ordm;C &quot; &apos;&amp; + 字符 + ; 具体参考HTML转义 代码缩进 &lt;?php echo &quot;haha!&quot;; ?&gt; 前面加四个空格 1 2 3 $(function ()&#123; $( "body" ).html ="&lt;div&gt;content&lt;/div&gt;" ; &#125;);1 2*******1 2 3 4 5 6 7 8 9&lt;!DOCTYPE html&gt; &lt; html &gt; &lt; head &gt; &lt; title &gt; 测试 &lt;/ title &gt; &lt;/ head &gt; &lt; body &gt; &lt; p &gt; 测试 &lt;/ p &gt; &lt;/ body &gt; &lt;/ html &gt; 1 2******* 科学算式的符号左右两边由$$组成$$E=mc^2$$E=mc^2$$(sqrt{3x-1}+(1+x)^2)$$(sqrt{3x-1}+(1+x)^2)$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f)) 1 2 3 4 5 \displaystyle \left( \sum\_&#123;k=1&#125;^n a\_k b\_k \right)^2 \leq \left( \sum\_&#123;k=1&#125;^n a\_k^2 \right) \left( \sum\_&#123;k=1&#125;^n b\_k^2 \right)1 2 3 4 5 \displaystyle \left( \sum\_&#123;k=1&#125;^n a\_k b\_k \right)^2 \leq \left( \sum\_&#123;k=1&#125;^n a\_k^2 \right) \left( \sum\_&#123;k=1&#125;^n b\_k^2 \right)1 2 3 4 5 6 7 8 9 \displaystyle\frac&#123;1&#125;&#123; \Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123; \frac25 \pi&#125;&#125; = 1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123; 1+\frac&#123;e^&#123;-6\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125;&#123;1+\cdots&#125; &#125; &#125;&#125;1 2 3 4 5 6 7 8 9 \displaystyle\frac&#123;1&#125;&#123; \Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123; \frac25 \pi&#125;&#125; = 1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123; 1+\frac&#123;e^&#123;-6\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\cdots&#125; &#125; &#125;&#125;1 2 3 f(x) = \int_&#123;-\infty&#125;^\infty \hat f(\xi)\,e^&#123;2 \pi i \xi x&#125; \,d\xi1 2 3 f(x) = \int_&#123;-\infty&#125;^\infty \hat f(\xi)\,e^&#123;2 \pi i \xi x&#125; \,d\xi 流程图 1 2 3 4 5 6 7 8 9 open=&gt;start: 打开程序 init=&gt;operation: 初始化 module=&gt;operation: 载入模块 is=&gt;condition: 初始化是否成功 end=&gt;end: 打开主界面open-&gt;init-&gt;module-&gt;is is(yes)-&gt;end is(no)-&gt;init1 2 3 4 5 6 7 8 open=&gt;start: 打开程序 init=&gt;operation: 初始化 is=&gt;condition: 初始化是否成功 end=&gt;end: 打开主界面open-&gt;init-&gt;is is(√)-&gt;end is(X)-&gt;init 交互图 1 2 3 4 5 客户-&gt;服务器: 请求登录 Note right of 服务器: 小标签 服务器--&gt;客户: 给用户Token Note left of 客户: 小标签 客户-&gt;&gt;服务器: 收到Token1 2 3 4 5 客户-&gt;服务器: 请求登录 Note right of 服务器: 小标签 服务器--&gt;客户: 给用户Token Note left of 客户: 小标签 客户-&gt;&gt;服务器: 收到Token
+                </div>
+                <div class="info">
+                    <div class="time">2017-12-11 20:07:41</div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+    </body>
+</html>

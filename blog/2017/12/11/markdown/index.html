@@ -1,0 +1,526 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+        <meta content="telephone=no" name="format-detection" />
+        <meta name="google" value="notranslate">
+
+        <link rel="stylesheet" href="/blog/js/markdown/css/editormd.preview.min.css" />
+
+        <link rel="icon" type="image/x-icon" href="/blog/favicon.ico" />
+
+        <title>PTRSVLTNS</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+            }
+            html {
+                overflow-x: hidden;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var config = {
+                url: "http://ptrsvltns.github.io/blog",
+                root: "/blog/",
+                current: window.location.href
+            }
+        </script>
+        <script src="/blog/js/markdown/js/jquery.min.js"></script>
+        <script src="/blog/js/markdown/js/marked.min.js"></script>
+        <script src="/blog/js/markdown/js/prettify.min.js"></script>
+
+        <script src="/blog/js/markdown/js/raphael.min.js"></script>
+        <script src="/blog/js/markdown/js/underscore.min.js"></script>
+        <script src="/blog/js/markdown/js/sequence-diagram.min.js"></script>
+        <script src="/blog/js/markdown/js/flowchart.min.js"></script>
+        <script src="/blog/js/markdown/js/jquery.flowchart.min.js"></script>
+
+        <script src="/blog/js/markdown/editormd.min.js"></script>
+        <div>
+    <style>
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            z-index: 10;
+        }
+        .fix-header {
+            height: 70px;
+        }
+        #header .center {
+            height: 100%;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #header .title {
+            line-height: 70px;
+            font-size: 30px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+        }
+        #header .title:hover {
+            color: #555;
+        }
+        @media screen and (max-width: 800px) {
+            #header {
+                height: 50px;
+            }
+            .fix-header {
+                height: 50px;
+            }
+            #header .center {
+                padding: 0 10px;
+            }
+            #header .title {
+                line-height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+    <div id="header">
+        <div class="center">
+            <div class="title">PTRSVLTNS</div>
+        </div>
+    </div>
+    <div class="fix-header"></div>
+    <script>
+        $(function() {
+            $("#header .title").bind("click", function() {
+                window.location.href = config.url;
+            });
+        });
+    </script>
+</div>
+<div>
+    <style>
+        #post {
+            width: 100%;
+            background: white;
+        }
+        #post .center {
+            height: auto;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow-x: hidden;
+            position: relative;
+        }
+        #post #top {
+            padding: 0 20px;
+        }
+        #post #top .title {
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0 10px 0;
+        }
+        #post #top .info {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-align: center;
+        }
+        #post #top .info .author {
+            font-size: 12px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #post #top .info .time {
+            font-size: 12px;
+            display: inline-block;
+            color: #999;
+        }
+        #id {
+            overflow-x: hidden;
+        }
+    </style>
+    <div id="post">
+        <div class="center">
+            <div id="top">
+                <div class="title">MarkDown 使用教程</div>
+                <div class="info">
+                    <div class="author">ptrsvltns</div>
+                    <div class="time">时间: 2017-12-11 20:07:41</div>
+                </div>
+            </div>
+            <div id="area" style="overflow-x: hidden;">
+            </div>
+            <textarea id="view" style="display:none;">
+                  
+  
+> 现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 所以学习使用 Markdown 是一件很好的选择 .
+
+# 标题1  
+`# 标题1`  
+
+## 标题2  
+`## 标题2`  
+
+### 标题3  
+`### 标题3`  
+
+#### 标题4  
+`#### 标题4`  
+
+##### 标题5  
+`##### 标题5`  
+
+###### 标题6  
+`###### 标题6`  
+
+----
+
+分割  
+`----`
+
+~~删除线~~ <s>删除线</s>  
+`~~删除线~~ <s>删除线</s>`
+
+*斜体字* _斜体字_  
+`*斜体字* _斜体字_`
+
+**粗体**  __粗体__  
+`**粗体**  __粗体__`
+
+***粗斜体*** ___粗斜体___  
+`***粗斜体*** ___粗斜体___`
+
+上标：X<sub>2</sub>  
+`X<sub>2</sub>`
+
+下标：O<sup>2</sup>  
+`O<sup>2</sup> `
+
+<abbr title="我是小标签">鼠标放这里</abbr>  
+`<abbr title="我是小标签">鼠标放这里</abbr>`
+
+----  
+
+> 引用  
+
+`> 引用`
+
+> `代码` [链接](%%current%%) 
+
+`引用内部也可以用其他标签`
+
+----
+
+<div style="color: red;">CSS</div>  
+`<div style="color: red;">CSS</div>`
+
+
+<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>  
+
+`<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>`
+
+----  
+
+[链接](%%current%%)  
+`[带标题链接](%%current%% "带标题链接")`
+
+[带标题链接](%%current%% "带标题链接")  
+`[带标题链接](%%current%% "带标题链接")`
+
+链接：<%%current%%>  
+`链接：<%%current%%>`
+
+
+[链接命名][haha]  
+
+[haha]: %%current%%
+
+`[链接命名][haha]  [haha]: %%current%%`
+
+----
+
+![](%%root%%image/logo.png)  
+`![](%%root%%image/logo.png)`
+
+[![](%%root%%image/logo.png)](%%current%% "链接")  
+`[![](%%root%%image/logo.png)](%%current%% "链接")`
+
+----
+           
+- 列表
+- 列表
+
+`- 名称`
+
+----
+
+* 列表
+* 列表
+
+`* 名称`
+
+----
+         
++ 列表
++ 列表
+    + 列表
+    + 列表
++ 列表
+    * 列表
+    * 列表
+
+`+ 名称`
+
+----
+
+1. 列表
+2. 列表
+3. 列表
+
+`数字. 名称`
+
+----
+
+- [x] 已完成1
+- [x] 已完成2
+- [ ] 未完成1
+    - [ ] 未完成3
+    - [ ] 未完成4
+    - [ ] 未完成5
+- [ ] 未完成2
+    - [ ] 未完成3
+    - [ ] 未完成4
+
+`- [] 未完成 - [x] 已完成`
+
+----
+
+| 名字        | 年龄       |
+| ----        | ----:     |
+| 小红        |   11岁     |
+| 小黄        |   12岁     |
+
+    | 名字        | 年龄       |
+    | ----        | ----:     |
+    | 小红        |   11岁     |
+    | 小黄        |   12岁     |
+
+----
+
+名字        | 年龄
+----        | ----:
+小红        |   11岁
+小黄        |   12岁
+
+    名字        | 年龄
+    ----        | ----:
+    小红        |   11岁
+    小黄        |   12岁
+
+----
+
+| 左边对齐  | 中间对齐  | 右边对齐 |
+| :---- |:----:| ----:|
+| 哈哈 | 1000 | 1000 |
+
+    | 左边对齐  | 中间对齐  | 右边对齐 |
+    | :------- |:---------:| -------:|
+    | 哈哈     | 1000      | 1000    |
+
+----
+
+&copy; & &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; &frac34; &frac14; &times; &divide; &raquo; A&sup2; B&sup3; 18&ordm;C &quot; &apos;
+
+    & + 字符 + ; 具体参考HTML转义
+
+----
+
+    代码缩进
+    <?php echo "haha!"; ?>
+    
+`前面加四个空格`
+
+```javascript
+$(function() {
+    $("body").html = "<div>content</div>";
+});
+```
+
+    ```javascript
+
+        *******
+
+    ```
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>测试</title>
+    </head>
+    <body>
+        <p>测试</p>
+    </body>
+</html>
+```
+
+    ```html
+        
+        *******
+
+    ```
+
+----
+
+### 科学算式的符号左右两边由$$组成
+
+$$E=mc^2$$  
+
+`E=mc^2`
+
+$$(sqrt{3x-1}+(1+x)^2)$$  
+
+`(sqrt{3x-1}+(1+x)^2)`
+
+$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$  
+
+`\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))`
+
+```math
+\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+```
+
+    ```math
+    \displaystyle
+    \left( \sum\_{k=1}^n a\_k b\_k \right)^2
+    \leq
+    \left( \sum\_{k=1}^n a\_k^2 \right)
+    \left( \sum\_{k=1}^n b\_k^2 \right)
+    ```
+
+```katex
+\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+```
+
+    ```katex
+    \displaystyle 
+        \frac{1}{
+            \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+            \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+            1+\frac{e^{-6\pi}}
+            {1+\frac{e^{-8\pi}}
+            {1+\cdots} }
+            } 
+        }
+    ```
+
+```latex
+f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+    \,d\xi
+```
+
+    ```latex
+    f(x) = \int_{-\infty}^\infty
+        \hat f(\xi)\,e^{2 \pi i \xi x}
+        \,d\xi
+    ```
+
+----
+
+### 流程图
+
+```flow
+open=>start: 打开程序
+init=>operation: 初始化
+module=>operation: 载入模块
+is=>condition: 初始化是否成功
+end=>end: 打开主界面
+
+open->init->module->is
+is(yes)->end
+is(no)->init
+```
+
+    ```flow
+    open=>start: 打开程序
+    init=>operation: 初始化
+    is=>condition: 初始化是否成功
+    end=>end: 打开主界面
+
+    open->init->is
+    is(√)->end
+    is(X)->init
+    ```
+
+----
+
+### 交互图
+
+```seq
+客户->服务器: 请求登录  
+Note right of 服务器: 小标签  
+服务器-->客户: 给用户Token  
+Note left of 客户: 小标签  
+客户->>服务器: 收到Token  
+```
+
+    ```seq
+    客户->服务器: 请求登录  
+    Note right of 服务器: 小标签  
+    服务器-->客户: 给用户Token  
+    Note left of 客户: 小标签  
+    客户->>服务器: 收到Token  
+    ```
+            </textarea>
+            <script>
+                $(function() {
+                    var content = $("#view").text();
+                    content = content.replace(/%%root%%/g, config.root);
+                    content = content.replace(/%%url%%/g, config.url);
+                    content = content.replace(/%%current%%/g, config.current);
+                    editormd.markdownToHTML("area", {
+                        markdown        : content,
+                        htmlDecode      : true,
+                        toc             : true,
+                        tocm            : true,
+                        emoji           : false,
+                        taskList        : true,
+                        tex             : true,
+                        flowChart       : true,
+                        sequenceDiagram : true,
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
