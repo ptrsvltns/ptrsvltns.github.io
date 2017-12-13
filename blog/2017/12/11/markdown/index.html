@@ -29,24 +29,29 @@
         </style>
     </head>
     <body>
+        <script src="/blog/js/jquery.min.js"></script>
+
+        <script src="/blog/js/markdown/lib/marked.min.js"></script>
+        <script src="/blog/js/markdown/lib/prettify.min.js"></script>
+
+        <script src="/blog/js/markdown/lib/raphael.min.js"></script>
+        <script src="/blog/js/markdown/lib/underscore.min.js"></script>
+        <script src="/blog/js/markdown/lib/sequence-diagram.min.js"></script>
+        <script src="/blog/js/markdown/lib/flowchart.min.js"></script>
+        <script src="/blog/js/markdown/lib/jquery.flowchart.min.js"></script>
+
+        <script src="/blog/js/markdown/editormd.min.js"></script>
         <script>
             var config = {
                 url: "http://ptrsvltns.github.io/blog",
                 root: "/blog/",
                 current: window.location.href
             }
+            editormd.katexURL  = {
+                css : config.url + "js/katex/katex.min",
+                js  : config.url + "js/katex/katex.min"
+            };
         </script>
-        <script src="/blog/js/markdown/js/jquery.min.js"></script>
-        <script src="/blog/js/markdown/js/marked.min.js"></script>
-        <script src="/blog/js/markdown/js/prettify.min.js"></script>
-
-        <script src="/blog/js/markdown/js/raphael.min.js"></script>
-        <script src="/blog/js/markdown/js/underscore.min.js"></script>
-        <script src="/blog/js/markdown/js/sequence-diagram.min.js"></script>
-        <script src="/blog/js/markdown/js/flowchart.min.js"></script>
-        <script src="/blog/js/markdown/js/jquery.flowchart.min.js"></script>
-
-        <script src="/blog/js/markdown/editormd.min.js"></script>
         <div>
     <style>
         #header {
@@ -57,9 +62,10 @@
             background: white;
             border-bottom: 1px solid #ddd;
             z-index: 10;
+            padding-left: calc(100vw - 100%);
         }
         .fix-header {
-            height: 70px;
+            height: 100px;
         }
         #header .center {
             height: 100%;
@@ -87,7 +93,7 @@
                 height: 50px;
             }
             .fix-header {
-                height: 50px;
+                height: 60px;
             }
             #header .center {
                 padding: 0 10px;
@@ -106,6 +112,9 @@
     <div class="fix-header"></div>
     <script>
         $(function() {
+            window.header = {
+                el: $("#header")[0]
+            }
             $("#header .title").bind("click", function() {
                 window.location.href = config.url;
             });
@@ -117,6 +126,7 @@
         #post {
             width: 100%;
             background: white;
+            padding-left: calc(100vw - 100%);
         }
         #post .center {
             height: auto;
@@ -125,6 +135,9 @@
             margin: auto;
             overflow-x: hidden;
             position: relative;
+        }
+        #post .center.hide {
+            opacity: 0;
         }
         #post #top {
             padding: 0 20px;
@@ -152,13 +165,21 @@
             display: inline-block;
             color: #999;
         }
-        #id {
-            overflow-x: hidden;
+        #loading {
+            text-align: center;
+            height: 24px;
+            line-height: 24px;
+            font-size: 13px;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            margin-top: -12px;
+            padding-left: calc(100vw - 100%);
         }
-
     </style>
+    <div id="loading">加载中...</div>
     <div id="post">
-        <div class="center">
+        <div class="center hide">
             <div id="top">
                 <div class="title">MarkDown 使用教程</div>
                 <div class="info">
@@ -167,9 +188,8 @@
                 </div>
             </div>
             <div id="area" style="overflow-x: hidden;"></div>
-            <textarea id="view" style="display:none;">
-                  
-> 现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 下面是我在学习和看网上的教程 , 并整理的一些使用方法 , 也算是在博客里面的第一篇文章 .
+            <textarea id="data" style="display: none;">  
+&gt; 现在很多网站都支持 Markdown , 比如: 简书 有道云笔记 , 而使用 Markdown 能让你专注于内容本身 , 下面是我在学习和看网上的教程 , 并整理的一些使用方法 , 也算是在博客里面的第一篇文章 .
 
 ----
 
@@ -181,22 +201,22 @@
 
 ### 一、在 Markdown 中使用标题
 
-<h1>标题1</h1>  
+&lt;h1&gt;标题1&lt;/h1&gt;  
 `# 标题1`  
 
-<h2>标题2</h2>  
+&lt;h2&gt;标题2&lt;/h2&gt;  
 `## 标题2`  
 
-<h3>标题3</h3>  
+&lt;h3&gt;标题3&lt;/h3&gt;  
 `### 标题3`  
 
-<h4>标题4</h4>  
+&lt;h4&gt;标题4&lt;/h4&gt;  
 `#### 标题4`  
 
-<h5>标题5</h5>  
+&lt;h5&gt;标题5&lt;/h5&gt;  
 `##### 标题5`  
 
-<h6>标题6</h6>  
+&lt;h6&gt;标题6&lt;/h6&gt;  
 `###### 标题6`  
 
 ----
@@ -206,8 +226,8 @@
 分割  
 `----`
 
-~~删除线~~ <s>删除线</s>  
-`~~删除线~~ <s>删除线</s>`
+~~删除线~~ &lt;s&gt;删除线&lt;/s&gt;  
+`~~删除线~~ &lt;s&gt;删除线&lt;/s&gt;`
 
 *斜体字* _斜体字_  
 `*斜体字* _斜体字_`
@@ -218,132 +238,76 @@
 ***粗斜体*** ___粗斜体___  
 `***粗斜体*** ___粗斜体___`
 
-上标：X<sub>2</sub>  
-`X<sub>2</sub>`
+上标：X&lt;sub&gt;2&lt;/sub&gt;  
+`X&lt;sub&gt;2&lt;/sub&gt;`
 
-下标：O<sup>2</sup>  
-`O<sup>2</sup> `
+下标：O&lt;sup&gt;2&lt;/sup&gt;  
+`O&lt;sup&gt;2&lt;/sup&gt; `
 
-<abbr title="我是小标签">鼠标放这里</abbr>  
-`<abbr title="我是小标签">鼠标放这里</abbr>`
+&lt;abbr title=&#34;我是小标签&#34;&gt;鼠标放这里&lt;/abbr&gt;  
+`&lt;abbr title=&#34;我是小标签&#34;&gt;鼠标放这里&lt;/abbr&gt;`
 
 ----  
 
 ### 三、在 Markdown 中使用引用
 
-> 引用  
+&gt; 引用  
 
-`> 引用`
+`&gt; 引用`
 
-> [链接](%%current%%)`代码`*斜体体* **粗体**  
+&gt; [链接](http://ptrsvltns.github.io/blog/)`代码`*斜体体* **粗体**  
 
 `引用内部也可以用其他标签`
 
-----
-
-### 四、在 Markdown 中使用HTML  
-> 很多网站对javascript做了屏蔽，但是html还是很好支持的
-
-<div style="color: red;">CSS</div>  
-
-```html
-<div style="color: red;">CSS</div>
-```
-
-<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>  
-
-```html
-<div style="cursor: pointer; color: #666; text-align: right; user-select: none;">CSS</div>
-```
-
-<iframe id="content-1" style="width: 100%; height: 100px; border: 1px solid #ddd; background: white;"></iframe>
-
-<script>
-setTimeout(function() {
-        document.getElementById("content-1").contentWindow.document.body.innerHTML = "<h1>iframe</h1>";}, 0);
-</script>
-
-```html
-//这个附带javascript脚本大部分网站会屏蔽掉
-<iframe id="content-1" style="width: 100%; height: 100px; border: 1px solid #ddd; background: white;"></iframe>
-<script>
-    setTimeout(function() {
-        document.getElementById("content-1").contentWindow.document.body.innerHTML = "<h1>iframe</h1>";
-    }, 0);
-</script>
-```
-
-<div id="content-2"></div>
-
-<script>
-setTimeout(function() {document.getElementById("content-2").innerHTML = "<p style=\"background: white; color:balck;\">div</p>";}, 0);
-</script>  
-
-```html
-//这个附带javascript脚本大部分网站会屏蔽掉
-<div id="content-2"></div>
-<script>
-    setTimeout(function() {
-        document.getElementById("content-2").innerHTML = "<p style=\"background: white; color:balck;\">div</p>";
-    }, 0);
-</script>
-```
-
-<div style="display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;" onmouseover="this.style.color = 'blue';" onmouseout="this.style.color='black';" onmousedown="this.style.color='red';" onmouseup="this.style.color='black';">按钮</div>
-
-```html
-<div style="display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;" onmouseover="this.style.color = 'blue';" onmouseout="this.style.color='black';" onmousedown="this.style.color='red';" onmouseup="this.style.color='black';">按钮</div>
-```
-
 ----  
 
-### 五、在 Markdown 中使用链接
+### 四、在 Markdown 中使用链接
 
-[链接](%%current%%)  
-`[链接](%%current%%)`
+[链接](http://ptrsvltns.github.io/blog/)  
+`[链接](http://ptrsvltns.github.io/blog/)`
 
-[带标题链接](%%current%% "带标题链接")  
-`[带标题链接](%%current%% "带标题链接")`
+[带标题链接](http://ptrsvltns.github.io/blog/ &#34;带标题链接&#34;)  
+`[带标题链接](http://ptrsvltns.github.io/blog/ &#34;带标题链接&#34;)`
 
-链接：<%%current%%>  
-`链接：<%%current%%>`
+链接：&lt;http://ptrsvltns.github.io/blog/&gt;  
+`链接：&lt;http://ptrsvltns.github.io/blog/&gt;`
 
 
 [链接命名][haha]  
 
-[haha]: %%current%%
+[haha]: http://ptrsvltns.github.io/blog/
 
 ```
 [链接命名][haha]
-[haha]: %%current%%
+[haha]: http://ptrsvltns.github.io/blog/
 ```
 
-<a href="%%current%%">链接</a>  
+&lt;a href=&#34;http://ptrsvltns.github.io/blog/&#34;&gt;链接&lt;/a&gt;  
 
-    <a href="%%current%%">链接</a>
+    &lt;a href=&#34;http://ptrsvltns.github.io/blog/&#34;&gt;链接&lt;/a&gt;
 
 ----
 
-### 六、在 Markdown 中使用图片
+### 五、在 Markdown 中使用图片
 
-![](%%root%%image/logo.png)  
+![](http://ptrsvltns.github.io/blog/image/logo.png)  
 
     //普通图片
-    ![](%%root%%image/logo.png)
+    ![](http://ptrsvltns.github.io/blog/image/logo.png)
 
-[![](%%root%%image/logo.png)](%%current%% "链接")  
+[![](http://ptrsvltns.github.io/blog/image/logo.png)](http://ptrsvltns.github.io/blog/ &#34;链接&#34;)  
 
     //带连接的图片
-    [![](%%root%%image/logo.png)](%%current%% "链接")
+    [![](http://ptrsvltns.github.io/blog/image/logo.png)](http://ptrsvltns.github.io/blog/ &#34;链接&#34;)
 
-<img src="%%root%%image/logo.png" draggable="false" style="width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 10px rgba(120, 120, 120, 0.2); -webkit-box-shadow: 0 0 10px rgba(120, 120, 120, 0.2); margin: auto; display: block;"/>  
+&lt;img src=&#34;http://ptrsvltns.github.io/blog/image/logo.png&#34; draggable=&#34;false&#34; style=&#34;width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 10px rgba(120, 120, 120, 0.2); -webkit-box-shadow: 0 0 10px rgba(120, 120, 120, 0.2); margin: auto; display: block;&#34;/&gt;  
 
     //当然你也可以花式玩法 用HTML
-    <img src="%%root%%image/logo.png" draggable="false" style="width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 10px rgba(120, 120, 120, 0.1); margin: auto; display: block;"/>
+    &lt;img src=&#34;http://ptrsvltns.github.io/blog/image/logo.png&#34; draggable=&#34;false&#34; style=&#34;width: 100px; height: 100px; border-radius: 50px; box-shadow: 0 0 10px rgba(120, 120, 120, 0.1); margin: auto; display: block;&#34;/&gt;
 
 ----
 
-### 七、在 Markdown 中使用列表
+### 六、在 Markdown 中使用列表
            
 - 列表
 - 列表
@@ -393,7 +357,7 @@ setTimeout(function() {document.getElementById("content-2").innerHTML = "<p styl
 
 ----
 
-### 八、在 Markdown 中使用表格
+### 七、在 Markdown 中使用表格
 
 | 名字        | 年龄       |
 | ----        | ----:     |
@@ -429,24 +393,81 @@ setTimeout(function() {document.getElementById("content-2").innerHTML = "<p styl
 
 ----
 
-### 九、在 Markdown 中使用 特殊符号 或者 转义符号
+### 八、在 Markdown 中使用 特殊符号 或者 转义符号
 
-&copy; & &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; &frac34; &frac14; &times; &divide; &raquo; A&sup2; B&sup3; 18&ordm;C &quot; &apos;
+&amp;copy; &amp; &amp;uml; &amp;trade; &amp;iexcl; &amp;pound; &amp;amp; &amp;lt; &amp;gt; &amp;yen; &amp;euro; &amp;reg; &amp;plusmn; &amp;para; &amp;sect; &amp;brvbar; &amp;macr; &amp;laquo; &amp;middot; &amp;frac34; &amp;frac14; &amp;times; &amp;divide; &amp;raquo; A&amp;sup2; B&amp;sup3; 18&amp;ordm;C &amp;quot; &amp;apos;
 
-    & + 字符 + ; 具体参考HTML转义
+    &amp; + 字符 + ; 具体参考HTML转义
 
 ----
 
-### 十、在 Markdown 中使用代码片段
+### 九、在 Markdown 中使用HTML  
+&gt; 很多网站对javascript做了屏蔽，但是html还是很好支持的
 
-    代码缩进
-    <?php echo "haha!"; ?>
-    
-`前面加四个空格`
+&lt;div style=&#34;color: red;&#34;&gt;CSS&lt;/div&gt;  
+
+```html
+&lt;div style=&#34;color: red;&#34;&gt;CSS&lt;/div&gt;
+```
+
+&lt;div style=&#34;cursor: pointer; color: #666; text-align: right; user-select: none;&#34;&gt;CSS&lt;/div&gt;  
+
+```html
+&lt;div style=&#34;cursor: pointer; color: #666; text-align: right; user-select: none;&#34;&gt;CSS&lt;/div&gt;
+```
+
+&lt;iframe id=&#34;content-1&#34; style=&#34;width: 100%; height: 100px; border: 1px solid #ddd; background: white;&#34;&gt;&lt;/iframe&gt;
+
+&lt;script&gt;
+setTimeout(function() {
+        document.getElementById(&#34;content-1&#34;).contentWindow.document.body.innerHTML = &#34;&lt;h1&gt;iframe&lt;/h1&gt;&#34;;}, 0);
+&lt;/script&gt;
+
+```html
+//这个附带javascript脚本大部分网站会屏蔽掉
+&lt;iframe id=&#34;content-1&#34; style=&#34;width: 100%; height: 100px; border: 1px solid #ddd; background: white;&#34;&gt;&lt;/iframe&gt;
+&lt;script&gt;
+    setTimeout(function() {
+        document.getElementById(&#34;content-1&#34;).contentWindow.document.body.innerHTML = &#34;&lt;h1&gt;iframe&lt;/h1&gt;&#34;;
+    }, 0);
+&lt;/script&gt;
+```
+
+&lt;div id=&#34;content-2&#34;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+setTimeout(function() {document.getElementById(&#34;content-2&#34;).innerHTML = &#34;&lt;p style=\&#34;background: white; color:balck;\&#34;&gt;div&lt;/p&gt;&#34;;}, 0);
+&lt;/script&gt;  
+
+```html
+//这个附带javascript脚本大部分网站会屏蔽掉
+&lt;div id=&#34;content-2&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+    setTimeout(function() {
+        document.getElementById(&#34;content-2&#34;).innerHTML = &#34;&lt;p style=\&#34;background: white; color:balck;\&#34;&gt;div&lt;/p&gt;&#34;;
+    }, 0);
+&lt;/script&gt;
+```
+
+&lt;div style=&#34;display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;&#34; onmouseover=&#34;this.style.color = &#39;blue&#39;;&#34; onmouseout=&#34;this.style.color=&#39;black&#39;;&#34; onmousedown=&#34;this.style.color=&#39;red&#39;;&#34; onmouseup=&#34;this.style.color=&#39;black&#39;;&#34;&gt;按钮&lt;/div&gt;
+
+```html
+//这个附带javascript脚本大部分网站会屏蔽掉
+&lt;div style=&#34;display: inline-block; color: black; cursor: pointer; user-select: none; -webkit-user-select: none;&#34; onmouseover=&#34;this.style.color = &#39;blue&#39;;&#34; onmouseout=&#34;this.style.color=&#39;black&#39;;&#34; onmousedown=&#34;this.style.color=&#39;red&#39;;&#34; onmouseup=&#34;this.style.color=&#39;black&#39;;&#34;&gt;按钮&lt;/div&gt;
+```
+
+----
+
+### 十、在 Markdown 中插入代码
+
+&gt; 代码前面加四个空格 或者用`
+&gt; 如果是代码片段可以用三个```
+
+    &lt;?php echo &#34;haha!&#34;; ?&gt;
 
 ```javascript
 $(function() {
-    $("body").html = "<div>content</div>";
+    $(&#34;body&#34;).html = &#34;&lt;div&gt;content&lt;/div&gt;&#34;;
 });
 ```
 
@@ -457,15 +478,15 @@ $(function() {
     ```
 
 ```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>测试</title>
-    </head>
-    <body>
-        <p>测试</p>
-    </body>
-</html>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;测试&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;测试&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 ```
 
     ```html
@@ -481,18 +502,6 @@ $(function() {
 ```
 左右两边由$$组成  
 $$公式$$
-```
-
-$$E=mc^2$$  
-
-```
-$$E=mc^2$$
-```
-
-$$(sqrt{3x-1}+(1+x)^2)$$  
-
-```
-$$(sqrt{3x-1}+(1+x)^2)$$
 ```
 
 $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$  
@@ -558,26 +567,26 @@ f(x) = \int_{-\infty}^\infty
 ### 十二、在 Markdown 中使用流程图
 
 ```flow
-open=>start: 打开程序
-init=>operation: 初始化
-module=>operation: 载入模块
-is=>condition: 初始化是否成功
-end=>end: 打开主界面
+open=&gt;start: 打开程序
+init=&gt;operation: 初始化
+module=&gt;operation: 载入模块
+is=&gt;condition: 初始化是否成功
+end=&gt;end: 打开主界面
 
-open->init->module->is
-is(yes)->end
-is(no)->init
+open-&gt;init-&gt;module-&gt;is
+is(yes)-&gt;end
+is(no)-&gt;init
 ```
 
     ```flow
-    open=>start: 打开程序
-    init=>operation: 初始化
-    is=>condition: 初始化是否成功
-    end=>end: 打开主界面
+    open=&gt;start: 打开程序
+    init=&gt;operation: 初始化
+    is=&gt;condition: 初始化是否成功
+    end=&gt;end: 打开主界面
 
-    open->init->is
-    is(√)->end
-    is(X)->init
+    open-&gt;init-&gt;is
+    is(√)-&gt;end
+    is(X)-&gt;init
     ```
 
 ----
@@ -585,31 +594,26 @@ is(no)->init
 ### 十三、在 Markdown 中使用交互图
 
 ```seq
-客户->服务器: 请求登录  
+客户-&gt;服务器: 请求登录  
 Note right of 服务器: 小标签  
-服务器-->客户: 给用户Token  
+服务器--&gt;客户: 给用户Token  
 Note left of 客户: 小标签  
-客户->>服务器: 收到Token  
+客户-&gt;&gt;服务器: 收到Token  
 ```
 
     ```seq
-    客户->服务器: 请求登录  
+    客户-&gt;服务器: 请求登录  
     Note right of 服务器: 小标签  
-    服务器-->客户: 给用户Token  
+    服务器--&gt;客户: 给用户Token  
     Note left of 客户: 小标签  
-    客户->>服务器: 收到Token  
+    客户-&gt;&gt;服务器: 收到Token  
     ```
     
-
-            </textarea>
+</textarea>
             <script>
                 $(function() {
-                    var content = $("#view").text();
-                    content = content.replace(/%%root%%/g, config.root);
-                    content = content.replace(/%%url%%/g, config.url);
-                    content = content.replace(/%%current%%/g, config.current);
                     editormd.markdownToHTML("area", {
-                        markdown        : content,
+                        markdown        : $("#data").text(),
                         htmlDecode      : true,
                         toc             : true,
                         tocm            : true,
@@ -617,7 +621,23 @@ Note left of 客户: 小标签
                         taskList        : true,
                         tex             : true,
                         flowChart       : true,
-                        sequenceDiagram : true,
+                        sequenceDiagram : true
+                    });
+                    $("#area").ready(function() {
+                        var hash = window.location.hash;
+                        hash = hash.substr(1-hash.length);
+                        var item = null;
+                        $("*:contains(" + hash + ")").each(function() {
+                            if((/h[1-6]/).test(this.tagName.toLowerCase())) {
+                                item = this;
+                            }
+                        });
+                        if(item) {
+                            var dif = 0;
+                            if(header) dif = header.el.scrollHeight - 50;
+                            $("html").scrollTop(item.offsetTop + dif);
+                        }
+                        $("#post .center").removeClass("hide");
                     });
                 });
             </script>
@@ -631,14 +651,17 @@ Note left of 客户: 小标签
             position: fixed;
             right: 20px;
             bottom: 20px;
-            width: 40px; height: 40px;
+            padding: 5px;
             background: white;
-            border: 1px solid #f2f2f2;
+            border: 1px solid #ddd;
             cursor: pointer;
             z-index: 100;
+            font-size: 13px;
+            line-height: 15px;
+            text-align: center;
         }
     </style>
-    <div id="scroll">返回顶部</div>
+    <div id="scroll">返回<br/>顶部</div>
     <script>
         $(function() {
             var el = $(document);
@@ -656,7 +679,7 @@ Note left of 客户: 小标签
                 set();
             });
             scroll.bind("click", function() {
-                $('html, body').animate({ scrollTop: 0 }, 500);
+                $("html").animate({ scrollTop: 0 }, 500);
             });
         });
     </script>
