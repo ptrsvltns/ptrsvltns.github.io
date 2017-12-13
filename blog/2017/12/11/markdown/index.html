@@ -193,12 +193,6 @@
 
 ----
 
-&lt;h3&gt;目录&lt;/h3&gt;
-
-[TOC]
-
-----
-
 ### 一、在 Markdown 中使用标题
 
 &lt;h1&gt;标题1&lt;/h1&gt;  
@@ -615,8 +609,8 @@ Note left of 客户: 小标签
                     editormd.markdownToHTML("area", {
                         markdown        : $("#data").text(),
                         htmlDecode      : true,
-                        toc             : true,
-                        tocm            : true,
+                        toc             : false,
+                        tocm            : false,
                         emoji           : false,
                         taskList        : true,
                         tex             : true,
