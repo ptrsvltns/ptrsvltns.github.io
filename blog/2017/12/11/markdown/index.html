@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
         <meta content="telephone=no" name="format-detection" />
-        <meta name="google" value="notranslate">
+        <meta name="google" content="notranslate" />
 
         <link rel="stylesheet" href="/blog/js/markdown/css/editormd.preview.min.css" />
 
@@ -625,17 +625,19 @@ Note left of 客户: 小标签
                     });
                     $("#area").ready(function() {
                         var hash = window.location.hash;
-                        hash = hash.substr(1-hash.length);
-                        var item = null;
-                        $("*:contains(" + hash + ")").each(function() {
-                            if((/h[1-6]/).test(this.tagName.toLowerCase())) {
-                                item = this;
+                        if(hash && hash.indexOf("#") !== -1) {
+                            hash = hash.substr(1 - hash.length);
+                            var item = null;
+                            $("*:contains(" + hash + ")").each(function() {
+                                if((/h[1-6]/).test(this.tagName.toLowerCase())) {
+                                    item = this;
+                                }
+                            });
+                            if(item) {
+                                var dif = 0;
+                                if(header) dif = header.el.scrollHeight - 50;
+                                $("html").scrollTop(item.offsetTop + dif);
                             }
-                        });
-                        if(item) {
-                            var dif = 0;
-                            if(header) dif = header.el.scrollHeight - 50;
-                            $("html").scrollTop(item.offsetTop + dif);
                         }
                         $("#post .center").removeClass("hide");
                     });
