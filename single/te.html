@@ -16,7 +16,9 @@
                 user-select: none;
             }
             .head {
-                height: 40px;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%;
                 background: #393D49;
                 padding: 0 40px;
             }
@@ -94,16 +96,30 @@
             .content .h20 {
                 height: 20px;
             }
+            .content .h40 {
+                height: 40px;
+            }
             .content .uline {
                 text-decoration: underline;
+            }
+            .footer {
+                height: 80px;
+                margin-top: 40px;
+            }
+            .copyright {
+                line-height: 80px;
+                color: #666;
+                font-size: 13px;
+                text-align: center;
             }
         </style>
     </head>
     <body>
-        <div class="head">
+        <div class="head h40">
             <div class="title">小卖铺</div>
         </div>
         <div class="content">
+            <div class="h40"></div>
             <div class="row cnt">
                 <div class="c444 f23">姜枣膏<div class="tip vb">手工</div></div>
             </div>
@@ -160,6 +176,10 @@
                 <div class="f17 c222">存储方法</div>
                 <div class="f13 c444">开盖后放冷藏一个月喝完, 常温保质期3月</div>
             </div>
+            <div class="h20"></div>
+        </div>
+        <div class="footer">
+            <div class="copyright">Copyright © 2017-2018 小卖铺</div>
         </div>
         <script>
             document.oncontextmenu = function() {
