@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="width: 100%; height: 100%;">
+    <meta charset="UTF-8">
+    <title>使用帮助</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <style>
+        * {
+            font-family: "HanHei SC", "PingHei", "PingFang SC", "STHeitiSC-Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        }
+        body {
+            margin: 0;
+            background: #f2f2f2;
+        }
+        a, div {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body style="margin: 0; width: 100%; height: 100%;">
+<div class="init"></div>
+<style>
+    .page-help {
+        margin: auto;
+        max-width: 900px;
+        width: 100%;
+        background: #f2f2f2;
+    }
+    .page-help .page-title {
+        font-size: 12px;
+        color: #666;
+        padding: 10px;
+    }
+    .page-help .page-line {
+        height: 10px;
+    }
+    .page-help .page-list {
+        border: 1px solid #ddd;
+        background: white;
+    }
+    .page-help .page-item {
+        display: block;
+        padding: 10px 15px 10px 10px;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        color: black;
+        text-decoration: none;
+    }
+    .page-help .page-item::before {
+        content: "";
+        position: absolute;
+        left: 10px; top: 0; bottom: 0; right: 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .page-help .page-item::after {
+        content: "";
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAGo2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxOC0xMC0yM1QxNToyMjozMSswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTgtMTAtMjNUMTY6MTY6MDYrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTgtMTAtMjNUMTY6MTY6MDYrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIxIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iRG90IEdhaW4gMTUlIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmUzNTA4YmIxLWQ0Y2UtZWE0ZS1iOGY0LTRjMzAzMjI3YmE5YyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDplYTMzNmU2OC1lN2RiLWJmNDAtYWRiNC0zYjgyYzhmMDhiMjkiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplYTMzNmU2OC1lN2RiLWJmNDAtYWRiNC0zYjgyYzhmMDhiMjkiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmVhMzM2ZTY4LWU3ZGItYmY0MC1hZGI0LTNiODJjOGYwOGIyOSIgc3RFdnQ6d2hlbj0iMjAxOC0xMC0yM1QxNToyMjozMSswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MzhhNGVhY2EtMTMyYi1lNTQwLTkyNzAtMTVjYjBmNWQ1MWIxIiBzdEV2dDp3aGVuPSIyMDE4LTEwLTIzVDE1OjUxOjExKzAyOjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplMzUwOGJiMS1kNGNlLWVhNGUtYjhmNC00YzMwMzIyN2JhOWMiIHN0RXZ0OndoZW49IjIwMTgtMTAtMjNUMTY6MTY6MDYrMDI6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+4VYOEQAAAIRJREFUOBFj+M8Agz3CPft6+nsYESLYIBKzZ2PPfyCchl8Lsgb3nh9gLVOJ1ADU4gHVMoVIDcRowRCAa5lMpAYkLZOI1IBfCw6XwrVMJFIDkpYJRGrApQVvMoBrqaKNBhKdRKKnSQxWEiOOxKRBYuIjMXmTmIFIzqKkFwLCPad7JhEqZgBgR15PF9AltgAAAABJRU5ErkJggg==');
+        background-size: 12px 12px;
+        position: absolute;
+        right: 5px; top: 50%;
+        width: 12px; height: 12px;
+        margin-top: -6px;
+    }
+    .page-help .page-item:last-child:before {
+        border-bottom: none;
+    }
+    .page-help .page-item:active {
+        background: #f4f4f4;
+    }
+</style>
+<div class="bg"></div>
+<div class="page-help">
+    <div class="page-title">常见问题</div>
+    <div class="page-list">
+        <a class="page-item" draggable="false" href="1.html">1.如何修改首页显示的商家信息?</a>
+        <a class="page-item" draggable="false" href="2.html">2.口令在哪里看, 怎么修改口令?</a>
+        <a class="page-item" draggable="false" href="3.html">3.我不想给不相干的人口令, 如何生成临时口令只给一个客户使用?</a>
+        <a class="page-item" draggable="false" href="4.html">4.我想给客户看产品, 但是不想让他看价格, 该怎么做?</a>
+        <a class="page-item" draggable="false" href="5.html">5.我想让别的地区的客户不同价格, 怎么设置?</a>
+        <a class="page-item" draggable="false" href="6.html">6.怎么取消订单?</a>
+        <a class="page-item" draggable="false" href="7.html">7.怎么下架产品, 隐藏产品?</a>
+        <a class="page-item" draggable="false" href="8.html">8.电话号码太多分不清, 怎么给客户备注?</a>
+        <a class="page-item" draggable="false" href="9.html">9.怎么放首页的轮播图?</a>
+        <a class="page-item" draggable="false" href="10.html">10.我是新商家, 怎么放入产品, 怎么设置分类?</a>
+        <a class="page-item" draggable="false" href="11.html">11.客户说看到的产品顺序和我电脑的不一样怎么办?</a>
+        <a class="page-item" draggable="false" href="12.html">12.我该怎么设置新到产品?</a>
+        <a class="page-item" draggable="false" href="13.html">13.促销产品和推荐产品在哪里设置?</a>
+        <a class="page-item" draggable="false" href="14.html">14.客人发送好订单, 我要在哪看?</a>
+    </div>
+</div>
+<div class="end"></div>
+</body>
+</html>
