@@ -19,49 +19,59 @@
             margin: 0;
             padding: 0;
         }
-        .content {
+        .area {
             background: #f8f8f8;
             width: 100%;
             height: 100%;
+            cursor: default;
+        }
+        .center {
             display: -webkit-flex;
             display: flex;
             -webkit-justify-content: center;
             justify-content: center;
             align-items: center;
-            cursor: default;
+        }
+        .content {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            width: 100%;
+            height: 100%;
         }
         .box {
+            display: inline-flex;
             width: 150px; height: 150px;
             background: white;
-            border: 1px solid #e8e8e8;
             box-shadow: 0;
             text-align: center;
             -webkit-transition: all 0.5s;
             transition: all 0.5s;
             margin-top: 0;
             border-radius: 5px;
-            display: table;
             cursor: pointer;
-            margin: 5px;
+            margin: 10px;
+            box-shadow: 0 0 20px 0 rgba(100, 100, 100, 0.1);
         }
         .box:hover {
             margin-top: -5px;
-            box-shadow: 0 5px 10px rgba(99, 99, 99, 0.1);
+            box-shadow: 0 0 20px 0 rgba(100, 100, 100, 0.3);
         }
-        .box span {
-            display: table-cell;
-            vertical-align: middle;
+        .box div {
             color: #333;
             font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <a class="box" href="blog/"><span>Blog</span></a>
-        <a class="box" href="src/"><span>Resource</span></a>
-        <a class="box" href="freexhelp/"><span>FreeX帮助</span></a>
-        <a class="box" href="setting/list.html"><span>FreeX帮助2</span></a>
+    <div class="area">
+        <div class="content center">
+            <a class="box center" href="blog/"><div>文章</div></a>
+            <a class="box center" href="src/"><div>资源下载</div></a>
+            <a class="box center" href="market/"><div>友购-业务员</div></a>
+            <a class="box center" href="freexhelp/"><div>FreeX-帮助</div></a>
+            <a class="box center" href="setting/list.html"><div>FreeX-帮助2</div></a>
+        </div>
     </div>
 </body>
 </html>

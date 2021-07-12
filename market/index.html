@@ -1,0 +1,329 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>友购 - 业务员版</title>
+    <meta name="description" content="友购 - 业务员版" />
+    <meta name="keywords" content="友购,业务员" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0; padding: 0;
+            background: #f2f2f2;
+            overflow: hidden;
+            user-select: none;
+        }
+        body.black {
+            background: #000;
+        }
+
+        .content {
+            width: 100vw;
+            height: 100vh;
+            max-width: 1200px;
+            margin: auto;
+            position: absolute;
+            opacity: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+        .content.show {
+            opacity: 1;
+        }
+        .logo {
+            position: absolute;
+            left: 10%;
+            top: 20px;
+        }
+
+
+        .phone {
+            position: absolute;
+            bottom: -130px;
+            left: 40%;
+            width: 600px;
+            Perspective: 200px;
+        }
+        .iphone {
+            width: 100%;
+        }
+        .phone .pane {
+            position: absolute;
+            left: 262px; right: 95px;
+            bottom: 115px; top: 10px;
+            transform: skewX(-10deg) rotateY(-5deg) rotateX(2.5deg);
+        }
+        .icon-1 {
+            position: absolute;
+            bottom: 30px;
+            left :40px;
+            width: 75px;
+            -webkit-animation: icon-1 infinite alternate 3s ease;
+            -o-animation: icon-1 infinite alternate 3s ease;
+            animation: icon-1 infinite alternate 3s ease;
+        }
+        .ball-1 {
+            position: absolute;
+            bottom: 70px;
+            left :5px;
+            width: 30px;
+            -webkit-animation: ball-1 infinite alternate 3s ease;
+            -o-animation: ball-1 infinite alternate 3s ease;
+            animation: ball-1 infinite alternate 3s ease;
+        }
+        .icon-2 {
+            position: absolute;
+            top: 360px;
+            right : 5px;
+            width: 75px;
+            -webkit-animation: icon-2 infinite alternate 3.7s ease-in;
+            -o-animation: icon-2 infinite alternate 3.7s ease-in;
+            animation: icon-2 infinite alternate 3.7s ease-in;
+        }
+        .ball-2 {
+            position: absolute;
+            top: 310px;
+            right :20px;
+            width: 50px;
+            -webkit-animation: ball-2 infinite alternate 3.5s ease-in;
+            -o-animation: ball-2 infinite alternate 3.5s ease-in;
+            animation: ball-2 infinite alternate 3.5s ease-in;
+        }
+        .icon-3 {
+            position: absolute;
+            top: 70px;
+            left :70px;
+            width: 75px;
+            -webkit-animation: icon-3 infinite alternate 3.2s ease-out;
+            -o-animation: icon-3 infinite alternate 3.2s ease-out;
+            animation: icon-3 infinite alternate 3.2s ease-out;
+        }
+        .ball-3 {
+            position: absolute;
+            top: 50px;
+            left :50px;
+            width: 20px;
+            -webkit-animation: ball-3 infinite alternate 2.5s ease-out;
+            -o-animation: ball-3 infinite alternate 2.5s ease-out;
+            animation: ball-3 infinite alternate 2.5s ease-out;
+        }
+        @keyframes icon-1 {
+            0% {
+                -webkit-transform: scale(1.1, 1.1);
+            }
+            100% {
+                -webkit-transform: scale(0.9, 0.9);
+            }
+        }
+        @keyframes icon-1 {
+            0% {
+                transform: scale(1.1, 1.1);
+            }
+            100% {
+                transform: scale(0.9, 0.9);
+            }
+        }
+        @keyframes ball-1 {
+            0% {
+                -webkit-transform: translate(0, 0);
+            }
+            100% {
+                -webkit-transform: translate(25px, -25px);
+            }
+        }
+        @keyframes ball-1 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(25px, -25px);
+            }
+        }
+        @keyframes icon-2 {
+            0% {
+                -webkit-transform: scale(1.0, 1.0);
+            }
+            100% {
+                -webkit-transform: scale(0.8, 0.8);
+            }
+        }
+        @keyframes icon-2 {
+            0% {
+                transform: scale(1.0, 1.0);
+            }
+            100% {
+                transform: scale(0.8, 0.8);
+            }
+        }
+        @keyframes ball-2 {
+            0% {
+                -webkit-transform: translate(0, 0);
+            }
+            100% {
+                -webkit-transform: translate(-55px, 25px);
+            }
+        }
+        @keyframes ball-2 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-55px, 25px);
+            }
+        }
+        @keyframes icon-3 {
+            0% {
+                -webkit-transform: scale(1.0, 1.0);
+            }
+            100% {
+                -webkit-transform: scale(0.9, 0.9);
+            }
+        }
+        @keyframes icon-3 {
+            0% {
+                transform: scale(1.0, 1.0);
+            }
+            100% {
+                transform: scale(0.9, 0.9);
+            }
+        }
+        @keyframes ball-3 {
+            0% {
+                -webkit-transform: translate(0, 0);
+            }
+            100% {
+                -webkit-transform: translate(-25px, 45px);
+            }
+        }
+        @keyframes ball-3 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-25px, 45px);
+            }
+        }
+
+        .left {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+        }
+        .buttons {
+            display: table;
+            margin: auto;
+        }
+        .buttons .button {
+            cursor: pointer;
+            opacity: 1;
+            width: 191.5px;
+            margin: 15px 0;
+            max-width: 50%;
+			padding: 5px;
+        }
+        .buttons .button:hover {
+            opacity: 0.9;
+        }
+        .buttons .button:active {
+            opacity: 0.7;
+        }
+        
+
+        @media screen and (max-width: 1100px) {
+            .logo {
+                left: 20px;
+            }
+            .left {
+                left: 20px;
+            }
+        }
+        @media screen and (max-width: 825px) {
+            .logo {
+                top: 60px;
+            }
+            .phone {
+                bottom: auto;
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.7);
+            }
+            .left {
+                left: 50%;
+                bottom: 0;
+                background: #f2f2f2;
+                transform: translateX(-50%);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+            }
+            .left .text {
+                transform: scale(0.8);
+            }
+            .left .buttons {
+                transform: scale(0.8);
+            }
+            .black .left {
+                background: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+    </style>
+    <script src="lib/jquery/jquery.js"></script>
+</head>
+<body>
+    <div class="content">
+        <img class="logo" src="image/logo.png" draggable="false"/>
+        <div class="phone">
+            <div class="pane">
+                <img class="icon-1" src="image/icon-1.png" draggable="false"/>
+                <img class="ball-1" src="image/ball.png" draggable="false"/>
+                <img class="icon-2" src="image/icon-2.png" draggable="false"/>
+                <img class="ball-2" src="image/ball.png" draggable="false"/>
+                <img class="icon-3" src="image/icon-3.png" draggable="false"/>
+                <img class="ball-3" src="image/ball.png" draggable="false"/>
+            </div>
+            <img class="iphone" src="image/iphone.png" draggable="false"/>
+        </div>
+        <div class="left">
+            <img class="text" src="image/text.png" draggable="false"/>
+            <div class="buttons">
+                <img class="button appstore" src="image/appstore.png" draggable="false"/>
+                <img class="button playstore" src="image/playstore.png" draggable="false"/>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var els = {
+                text: $(".text"),
+                logo: $(".logo"),
+                body: $("body")
+            }
+            var themes = {
+                normal: 0,
+                black: 1
+            }
+            var theme = themes.normal;
+            if(theme === themes.black) {
+                els.logo.attr("src", "image/logo-white.png");
+                els.text.attr("src", "image/text-white.png");
+                els.body.addClass("black");
+            }
+        })();
+        window.onload = function() {
+            $(".content").addClass("show");
+			
+			$(".appstore").on("click", function() {
+				window.location.href = "https://apps.apple.com/es/app/id1134664661";
+			});
+			
+			$(".playstore").on("click", function() {
+				window.location.href = "market.apk";
+			});
+        }
+    </script>
+</body>
+</html>
